@@ -6,7 +6,7 @@ It also contains an example of how a code repository can be setup to support Con
 
 ## High-level Concept
 
-The below diagram illustrates how this can be used to support a GitOp with possible integration with a [supported external repo](https://cloud.google.com/build/docs/automating-builds/create-manage-triggers).
+The below diagram illustrates how this can be used to support GitOps with possible integration with a [supported external repo](https://cloud.google.com/build/docs/automating-builds/create-manage-triggers).
 
 ![archi](images/archi_diagrams-GCP_RemoteRepo_CICD.jpg)
 
