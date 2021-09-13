@@ -1,0 +1,7 @@
+.terraform*
+*.tfstate*
+*.tfplan
+
+/scratch
+/terraform.tfvars
+/secrets

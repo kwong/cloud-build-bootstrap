@@ -1,0 +1,50 @@
+# cloudbuild.yaml
+
+steps:
+- id: 'branch'
+  name: 'bash'
+  args:
+  - -c
+  - |
+      echo "~*~*~*~*~*~*~"
+      echo "Branch=$BRANCH_NAME"
+      echo "~*~*~*~*~*~*~"
+
+- id: "terraform init"
+  name: "hashicorp/terraform:0.13.7"
+  entrypoint: "sh"
+  args:
+  - -c
+  - |
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME
+        terraform init
+      else
+        echo "ERROR: environments/$BRANCH_NAME does not exist"
+      fi
+
+- id: 'terraform plan'
+  name: "hashicorp/terraform:0.13.7"
+  entrypoint: "sh"
+  args:
+  - -c
+  - |
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME
+        terraform plan
+      else
+        echo "ERROR: environments/$BRANCH_NAME does not exist"
+      fi
+
+- id: 'terraform apply'
+  name: "hashicorp/terraform:0.13.7"
+  entrypoint: "sh"
+  args:
+  - -c
+  - |
+      if [ -d "environments/$BRANCH_NAME/" ]; then
+        cd environments/$BRANCH_NAME
+        terraform apply --auto-approve
+      else
+        echo "ERROR: environments/$BRANCH_NAME does not exist"
+      fi
