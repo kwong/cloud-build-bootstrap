@@ -69,14 +69,14 @@ example_repo/
 5. Update `terraform.tfvars` to point to your dev and prod projects
     ```sh
     # for OSX, use sed -i '' 's/PROJECT_ID/...'
-    sed -i 's/PROJECT_ID/<your_dev_project>/' /environments/dev/terraform.tfvars
-    sed -i 's/PROJECT_ID/<your_prod_project>/' /environments/prod/terraform.tfvars
+    sed -i 's/PROJECT_ID/<your_dev_project>/' environments/dev/terraform.tfvars
+    sed -i 's/PROJECT_ID/<your_prod_project>/' environments/prod/terraform.tfvars
     ```
 
 6. Update `backend.tf` to point to your state bucket
     ```sh
-    sed -i 's/BUCKET_ID/<your_bucket_name/' /environments/dev/backend.tf
-    sed -i 's/BUCKET_ID/<your_bucket_name/' /environments/prod/backend.tf
+    sed -i 's/BUCKET_ID/<your_bucket_name/' environments/dev/backend.tf
+    sed -i 's/BUCKET_ID/<your_bucket_name/' environments/prod/backend.tf
     ```
 
 7. Commit changes
