@@ -7,9 +7,9 @@ resource "random_id" "suffix" {
   byte_length = 2
 }
 
-data "google_organization" "org" {
-  organization = var.org_id
-}
+# data "google_organization" "org" {
+#   organization = var.org_id
+# }
 
 # CloudBuild Project
 
