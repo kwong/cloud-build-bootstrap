@@ -4,6 +4,7 @@ config {
   disabled_by_default = false
 }
 
+# plugins downloaded to ~/.tflint.d/
 plugin "google" {
     enabled = true
     version = "0.12.1"
