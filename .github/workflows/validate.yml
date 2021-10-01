@@ -35,17 +35,14 @@ jobs:
   #   - name: Run TFLint
   #     run: tflint -f compact
 
-name: tfsec-pr-commenter
-on:
-  pull_request:
-jobs:
+
   tfsec_commenter:
     name: tfsec PR commenter
     runs-on: ubuntu-latest
 
     steps:
       - name: Clone repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: tfsec commenter
         uses: tfsec/tfsec-pr-commenter-action@main
