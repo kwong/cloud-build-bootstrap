@@ -35,14 +35,19 @@ jobs:
   #   - name: Run TFLint
   #     run: tflint -f compact
 
-  tfsec_commenterc:
+name: tfsec-pr-commenter
+on:
+  pull_request:
+jobs:
+  tfsec_commenter:
     name: tfsec PR commenter
     runs-on: ubuntu-latest
 
     steps:
-    - name: clone repo
-      uses: actions/checkout@v2
-    - name: tfsec
-      uses: aquasecurity/tfsec-pr-commenter-action@main
+      - name: Clone repo
+        uses: actions/checkout@master
+
+      - name: tfsec commenter
+        uses: tfsec/tfsec-pr-commenter-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
