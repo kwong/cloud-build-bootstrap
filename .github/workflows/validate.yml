@@ -17,7 +17,7 @@ jobs:
       name: Setup TFLint
       with:
         tflint_version: v0.32.1
-    
+
     - uses: hashicorp/setup-terraform@v1
       name: Setup Terraform
       with:
@@ -34,3 +34,14 @@ jobs:
 
     - name: Run TFLint
       run: tflint -f compact
+
+  run-tfsec:
+    runs-on: ubuntu-latest
+    name: tfsec PR commenter
+    steps:
+    - name: clone repo
+      uses: actions/checkout@v2
+    - name: tfsec
+      uses: aquasecurity/tfsec-pr-commenter-action@main
+        with:
+          github_token: ${{ github.token }}
